@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "demo-translation-playground",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate"
+  },
+  "dependencies": {
+    "nuxt": "^3.17.5"
+  }
+}
