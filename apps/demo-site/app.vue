@@ -1,11 +1,12 @@
 <script setup lang="ts">
-const config = useRuntimeConfig()
-const translation = config.public.translation
+const translation = useTranslation()
 </script>
 
 <template>
   <div>
     <NuxtRouteAnnouncer />
-    {{ translation }} 123 {{config}}
+    <pre>
+      {{ $t('welcome') }}
+    </pre>
   </div>
 </template>

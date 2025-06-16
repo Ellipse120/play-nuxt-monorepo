@@ -5,6 +5,7 @@ export default defineNuxtConfig({
 
   modules: ['demo-translation'],
   demoTranslation: {
+    defaultLocale: 'zhCN',
     locales: [
       { name: 'en', file: 'locales/en.json' },
       { name: 'zhCN', file: 'locales/zhCN.json' },
