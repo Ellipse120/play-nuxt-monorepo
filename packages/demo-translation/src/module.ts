@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { defineNuxtModule, addPlugin, createResolver, addImportsDir } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin, createResolver, addImportsDir, hasNuxtModule, installModule, addComponentsDir } from '@nuxt/kit'
 
 export type LocaleOption = {
   name: string
@@ -27,6 +27,10 @@ export default defineNuxtModule<ModuleOptions>({
     locales: [],
   },
   async setup(_options, _nuxt) {
+    if (!hasNuxtModule('@nuxt/ui')) {
+      await installModule('@nuxt/ui')
+    }
+
     const resolver = createResolver(import.meta.url)
     const localesResolver = createResolver(_nuxt.options.srcDir)
     const messages: Messages = {}
@@ -43,9 +47,14 @@ export default defineNuxtModule<ModuleOptions>({
       messages,
     }
 
+    _nuxt.options.css.push(resolver.resolve('./runtime/index.css'))
+
     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
     addPlugin(resolver.resolve('./runtime/plugin'))
     addPlugin(resolver.resolve('./runtime/plugins/translate'))
     addImportsDir(resolver.resolve('./runtime/composables'))
+    addComponentsDir({
+      path: resolver.resolve('./runtime/components/'),
+    })
   },
 })

@@ -12,6 +12,10 @@ export default defineNuxtConfig({
     ]
   },
 
+  ui: {
+    fonts: false,
+  },
+    
   future: {
     compatibilityVersion: 4
   },

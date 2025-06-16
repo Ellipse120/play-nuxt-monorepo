@@ -1,5 +1,6 @@
 <template>
   <div>
+    <LanguageSwitcher />
     Nuxt module playground! {{ translation }}
   </div>
 </template>
