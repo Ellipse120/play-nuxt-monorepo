@@ -13,6 +13,7 @@ My demo-translation module for doing i18n or kv-mapping things.
 
 - ⛰ `useTranslation()` composable function
 - 🚠 `$t()` helper function
+- 🍔 `LanguageSwitcher` component, based on `@nuxt/ui`
 
 ## Quick Setup
 
