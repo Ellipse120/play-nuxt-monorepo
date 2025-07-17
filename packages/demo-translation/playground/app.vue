@@ -1,6 +1,7 @@
 <template>
   <div>
     <LanguageSwitcher />
+    <div>{{ $t('welcome') }}</div>
     Nuxt module playground! {{ translation }}
   </div>
 </template>
